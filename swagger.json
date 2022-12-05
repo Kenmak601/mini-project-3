@@ -1,0 +1,198 @@
+{
+    "swagger": "2.0",
+    "info": {
+    "version": "1.0.0",
+    "title": "Mini Project 3",
+    "description": "BackEnd Node JS Application",
+    "license": {
+                "name": "MIT",
+                "url": "https://opensource.org/licenses/MIT"
+               }
+    },
+    "host": "localhost:4000",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "mini project 3 ",
+            "description": "Backend Node JS Application"
+        }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+            "/miniProject3/retrieveAll": {  
+                "get": 
+                {
+                    "tags": [ "Retrieve all Data from DB"],
+                    "summary": "show all details",
+                    "responses": {
+                            "200": {
+                                "description": "This will show all the data in the database"
+                            }
+                        }
+                }
+            },
+            "/miniProject3/filterByUserId": {
+                "get": 
+                {
+                    "tags": [ "Get data from a userID"],
+                    "summary": "show all details from userID input",
+                    "parameters": [
+                            {
+                                "name": "userID",
+                                "in": "query",
+                                "description": "Please Enter User ID"
+                            }
+                           
+                        ],
+                    "responses": {
+                            "200": {
+                                "description": "This will show all the details from the userID query"
+                            }
+                        }
+                }
+            },
+            "/miniProject3/deleteById": {
+                "delete": 
+                {
+                    "tags": [ "Delete by blog ID"],
+                    "summary": "Delete the details according to Blog ID",
+                    "parameters": [
+                            {
+                                "name": "blogID",
+                                "in": "query",
+                                "description": "Please Enter Blog ID"
+                            }
+                           
+                        ],
+                    "responses": {
+                            "200": {
+                                "description": "This will delete the blog entry according to the Blog ID input"
+                            }
+                        }
+                }
+            },
+            "/miniProject3/updateDetailsById": {
+                "put": 
+                {
+                    "tags": [ "Update Details By Blog ID"],
+                    "summary": "Blog details will be updated according to Blog ID input",
+                    "parameters": [
+                            {
+                                "name": "blogID",
+                                "in": "query",
+                                "description": "Please Enter Blog ID you want to update"
+                            },
+                            {
+                                "name": "title",
+                                "in": "query",
+                                "description": "Please Enter new title"
+                            },
+                            {
+                                "name": "body",
+                                "in": "query",
+                                "description": "Please enter new content for the body"
+                            }
+                           
+                        ],
+                    "responses": {
+                            "200": {
+                                "description": "Details in the title and body of the blog will be updated according to user input"
+                            }
+                        }
+                }
+            },
+            "/miniProject3/createEntry": {
+                "post": 
+                {
+                    "tags": [ "Create New Entry"],
+                    "summary": "Create a new blog post",
+                    "parameters": [
+                            {
+                                "name": "userID",
+                                "in": "query",
+                                "description": "Please enter user ID"
+                            },
+                            {
+                                "name": "blogID",
+                                "in": "query",
+                                "description": "Please enter new Blog ID"
+                            },
+                            {
+                                "name": "title",
+                                "in": "query",
+                                "description": "Please enter new title"
+                            },
+                            {
+                                "name": "body",
+                                "in": "query",
+                                "description": "Please enter new content for the body"
+                            }
+                           
+                        ],
+                    "responses": {
+                            "200": {
+                                "description": "This will create a new blog entry with userID, blogID, title and body content"
+                            }
+                        }
+                }
+            },
+            "/miniProject3/totalUserPosts": {
+                "get": 
+                {
+                    "tags": [ "Show the number of post a user has"],
+                    "summary": "show total posts",
+                    "parameters": [
+                            {
+                                "name": "userID",
+                                "in": "query",
+                                "description": "Please enter user ID"
+                            }
+                           
+                        ],
+                    "responses": {
+                            "200": {
+                                "description": "This will show the total number of posts by a user"
+                            }
+                        }
+                }
+            },
+            "/miniProject3/searchEntryByTitle": {
+                "get": 
+                {
+                    "tags": [ "Search Blog Titles"],
+                    "summary": "find titles from user input",
+                    "parameters": [
+                            {
+                                "name": "searchInput",
+                                "in": "query",
+                                "description": "Please enter words to search titles"
+                            }
+                           
+                        ],
+                    "responses": {
+                            "200": {
+                                "description": "This will search through the title column to find matching words from user input"
+                            }
+                        }
+                }
+            },
+            "/miniProject3/showUsersList": {
+                "get": 
+                {
+                    "tags": [ "Show all Users with blog entries"],
+                    "summary": "Show all users without repeating",
+                    "responses": {
+                            "200": {
+                                "description": "This will show all the users with blog entries"
+                            }
+                        }
+                }
+            }
+
+        }
+
+
+
+}
